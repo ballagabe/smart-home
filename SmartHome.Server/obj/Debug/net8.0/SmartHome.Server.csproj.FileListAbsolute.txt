@@ -33,3 +33,4 @@ C:\Users\z0049wde\source\repos\SmartHome\SmartHome.Server\obj\Debug\net8.0\refin
 C:\Users\z0049wde\source\repos\SmartHome\SmartHome.Server\obj\Debug\net8.0\SmartHome.Server.pdb
 C:\Users\z0049wde\source\repos\SmartHome\SmartHome.Server\obj\Debug\net8.0\SmartHome.Server.genruntimeconfig.cache
 C:\Users\z0049wde\source\repos\SmartHome\SmartHome.Server\obj\Debug\net8.0\ref\SmartHome.Server.dll
+C:\Users\z0049wde\source\repos\SmartHome\SmartHome.Server\obj\Debug\net8.0\SmartHome.Server.sourcelink.json
