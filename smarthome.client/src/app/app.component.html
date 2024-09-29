@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="menu">
+        <p-menubar [model]="menuItems">
+            <ng-template pTemplate="end">
+                <div class="menu-user-info">
+                    <h6>Név</h6>
+                    <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
+                </div>
+            </ng-template>
+        </p-menubar>
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

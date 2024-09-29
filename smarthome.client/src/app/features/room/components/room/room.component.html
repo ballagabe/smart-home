@@ -1,0 +1,9 @@
+<br><br>
+{{ roomName$ | async }}:
+
+<br>
+<div *ngIf="roomServices$ | async as roomServices">
+    <div *ngFor="let service of roomServices">
+        <a routerLink="/room/accessory" [queryParams]="{uid: service.uniqueId}" class="p-button font-bold custom-button"> {{ service.serviceName }} </a>
+    </div>
+</div>

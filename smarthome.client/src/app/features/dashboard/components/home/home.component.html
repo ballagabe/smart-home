@@ -1,0 +1,11 @@
+<p-fieldset legend="Dasboard" class="app-legend">
+    <p class="m-0">
+        Wellcome here! This is our home's application. You can control our smart devices via this application.
+    </p>
+</p-fieldset>
+
+<div *ngIf="layouts$ | async as layouts">
+    <div *ngFor="let layout of layouts">
+        <a routerLink="/room" [queryParams]="{name: layout.name}" class="p-button font-bold custom-button"> {{ layout.name }} </a>
+    </div>
+</div>

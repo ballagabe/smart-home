@@ -1,0 +1,24 @@
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .content {
+        height: 95vh;
+        width: 100%;
+    }
+
+    .menu {
+        height: 5vh;
+        align-self: center;
+        width: 100%;
+        margin-bottom: 1rem;
+
+        .menu-user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    }
+}
