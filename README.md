@@ -1,5 +1,5 @@
 # Web Application
-
+![presentation gif](light.gif)
 ## Overview
 This is a web application built using Angular for the frontend and .NET 8 Web API for the backend. It acts as a wrapper application for managing and interacting with a Homebridge server. The application communicates directly with the Homebridge API to provide enhanced functionality, such as managing devices and configurations. Both the Homebridge API and this application require authentication for secure access.
 
