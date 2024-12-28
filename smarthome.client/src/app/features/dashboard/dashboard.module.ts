@@ -6,7 +6,6 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { ButtonModule } from 'primeng/button';
 
-
 @NgModule({
   declarations: [
     HomeComponent

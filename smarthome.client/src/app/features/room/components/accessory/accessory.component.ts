@@ -22,19 +22,23 @@ export class AccessoryComponent {
 
   accessory$: Observable<AccessoryDetail | null> = this.accessoryId$.pipe(
     switchMap(uniqueId => {
-      return this.accessoryService.getAccessoryDetailsWithFiltering(uniqueId);
+      return this.accessoryService.getFilteredAccessoryDetails(uniqueId);
     })
   );
 
   updateAccessory(accessoryProperties: Characteristic) {
     this.accessoryId$
       .pipe(
-        switchMap(accessoryId => this.accessoryService.updateAccessoryProperty(accessoryId, accessoryProperties))
+        switchMap(accessoryId => this.accessoryService.updateAccessoryCharacteristic(accessoryId, accessoryProperties))
       )
       .subscribe();
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  toBoolean(value: number): any {
+    return value === 1;
   }
 }

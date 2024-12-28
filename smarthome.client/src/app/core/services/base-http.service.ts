@@ -1,11 +1,10 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
 
 export abstract class BaseHttpService {
 
-  protected baseUrl: string = environment.baseUrl;
+  protected baseUrl: string = '/api';
 
   constructor(protected http: HttpClient) { }
 
@@ -54,10 +53,8 @@ export abstract class BaseHttpService {
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error occurred';
     if (error.error instanceof ErrorEvent) {
-      // Client-side error
       errorMessage = `Error: ${error.error.message}`;
     } else {
-      // Server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     console.error(errorMessage);

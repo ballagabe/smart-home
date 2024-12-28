@@ -1,16 +1,5 @@
 {
   "profiles": {
-    "http": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "swagger",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.SpaProxy"
-      },
-      "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:5098"
-    },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,

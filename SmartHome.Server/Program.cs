@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using SmartHome.Server.Model;
+using SmartHome.Server.Extensions;
 
 namespace SmartHome.Server
 {
@@ -7,32 +11,23 @@ namespace SmartHome.Server
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
-            builder.Services.AddControllers();
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-
-
-            builder.Services.AddHttpClient<HomebridgeService>();
-            builder.Services.AddHttpContextAccessor();
-            builder.Services.AddDistributedMemoryCache();
-            builder.Services.AddSession(options =>
+            builder.Services.AddControllers(config =>
             {
-                options.IdleTimeout = TimeSpan.FromMinutes(30); 
-                options.Cookie.HttpOnly = true; 
-                options.Cookie.IsEssential = true; 
+                var globalAuthorizationPolicy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+                config.Filters.Add(new AuthorizeFilter(globalAuthorizationPolicy));
             });
 
-            builder.Services.AddCors(options =>
-            {
-                options.AddPolicy("AllowFrontendDev",
-                    builder => builder
-                        .WithOrigins("https://localhost:4200") 
-                        .AllowAnyHeader()
-                        .AllowAnyMethod()
-                        .AllowCredentials());
-            });
+            var config = new Config();
+            builder.Configuration.Bind(config);
+            builder.Services.AddSingleton(config);
+
+            builder.Services.ConfigureCors();
+            builder.Services.ConfigureAuthentication(config);
+            builder.Services.ConfigureSession();
+            builder.Services.ConfigureSwagger();
+            builder.Services.ConfigureAppServices();
 
             var app = builder.Build();
 
@@ -48,8 +43,8 @@ namespace SmartHome.Server
                 app.UseCors("AllowFrontendDev");
             }
 
+            app.UseAuthentication();
             app.UseAuthorization();
-
 
             app.MapControllers();
 

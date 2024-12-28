@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:4200",
 "RedirectUrl": "",
 "LaunchCommand": "npm start",
-"WorkingDirectory": "C:\\Users\\z0049wde\\source\\repos\\SmartHome\\SmartHome.Server\\..\\smarthome.client",
+"WorkingDirectory": "C:\\Users\\z0049wde\\OneDrive - Siemens AG\\Desktop\\prog\\homeproject\\smart-home\\SmartHome.Server\\..\\smarthome.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }

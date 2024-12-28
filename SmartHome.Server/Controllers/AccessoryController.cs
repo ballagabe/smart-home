@@ -1,77 +1,74 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using SmartHome.Server.Models;
 
-namespace SmartHome.Server.Controllers
+[Route("api/accessories")]
+[ApiController]
+public class AccessoryController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AccessoryController : ControllerBase
+    private readonly HomebridgeService _homebridgeService;
+
+    public AccessoryController(HomebridgeService homebridgeService)
     {
-        private readonly HomebridgeService _homebridgeService;
+        _homebridgeService = homebridgeService;
+    }
 
-        public AccessoryController(HomebridgeService homebridgeService)
+    [HttpGet]
+    public async Task<IActionResult> GetAccessoriesList()
+    {
+        try
         {
-            _homebridgeService = homebridgeService;
+            var accessories = await _homebridgeService.GetAccessoriesListAsync();
+            return Ok(accessories);
         }
-
-        [HttpGet("accessories")]
-        public async Task<IActionResult> GetAccessoriesList()
+        catch
         {
-            try
-            {
-                var accessories = await _homebridgeService.GetAccessoriesListAsync();
-                return Ok(accessories);
-            }
-            catch
-            {
-                return StatusCode(500, "Failed to retrieve accessories.");
-            }
+            return StatusCode(500, "Failed to retrieve accessories.");
         }
+    }
 
-        [HttpGet("accessories/layout")]
-        public async Task<IActionResult> GetAccessoriesLayoutList()
+    [HttpGet("layouts")]
+    public async Task<IActionResult> GetAccessoriesLayoutList()
+    {
+        try
         {
-            try
-            {
-                var layouts = await _homebridgeService.GetAccessoriesLayoutAsync();
-                return Ok(layouts);
-            }
-            catch
-            {
-                return StatusCode(500, "Failed to retrieve layouts.");
-            }
+            var layouts = await _homebridgeService.GetAccessoriesLayoutAsync();
+            return Ok(layouts);
         }
-
-        [HttpGet("accessories/{uniqueId}")]
-        public async Task<IActionResult> GetAccessory(string uniqueId)
+        catch
         {
-            try
-            {
-                var accessory = await _homebridgeService.GetAccessoryByUniqueIdAsync(uniqueId);
-                return Ok(accessory);
-            }
-            catch
-            {
-                return StatusCode(500, $"Failed to retrieve accessory {uniqueId}.");
-            }
+            return StatusCode(500, "Failed to retrieve layouts.");
         }
+    }
 
-        [HttpPut("accessories/{uniqueId}")]
-        public async Task<IActionResult> SetAccessoryCharacteristic(string uniqueId, [FromBody] object characteristic)
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetAccessory(string id)
+    {
+        try
         {
-            try
+            var accessory = await _homebridgeService.GetAccessoryByUniqueIdAsync(id);
+            return Ok(accessory);
+        }
+        catch
+        {
+            return StatusCode(500, $"Failed to retrieve accessory {id}.");
+        }
+    }
+
+    [HttpPut("{id}/characteristics")]
+    public async Task<IActionResult> UpdateAccessoryCharacteristic(string id, [FromBody] AccessoryUpdate accessory)
+    {
+        try
+        {
+            var success = await _homebridgeService.SetAccessoryCharacteristicAsync(id, accessory.CharacteristicObject);
+            if (success)
             {
-                var success = await _homebridgeService.SetAccessoryCharacteristicAsync(uniqueId, characteristic);
-                if (success)
-                {
-                    return Ok("Accessory updated successfully.");
-                }
-                return BadRequest("Failed to update accessory.");
+                return Ok("Accessory updated successfully.");
             }
-            catch
-            {
-                return StatusCode(500, $"Failed to update accessory {uniqueId}.");
-            }
+            return BadRequest("Failed to update accessory.");
+        }
+        catch
+        {
+            return StatusCode(500, $"Failed to update accessory {id}.");
         }
     }
 }

@@ -16,7 +16,7 @@ import { AppState } from '../models/app-state.model';
 export const initialState: AppState = {
   layout: [],
   accessories: [],
-  user: { name: '', photo: '' },
+  user: { name: '', email: '', picture: '' },
   layoutLoaded: false,
   accessoriesLoaded: false,
   userLoaded: false

@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "8xtF2UtDve35Z3KdrsLQH7t0nslCGdZ+ghgVeoqogsc=",
+  "Hash": "jVBh/TWwjO6Uk7AFk1+Sl2cbtBosZiXrnXnyjtLYlls=",
   "Source": "SmartHome.Server",
   "BasePath": "_content/SmartHome.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\z0049wde\\source\\repos\\SmartHome\\smarthome.client\\smarthome.client.esproj",
+      "Identity": "C:\\Users\\z0049wde\\OneDrive - Siemens AG\\Desktop\\prog\\homeproject\\smart-home\\smarthome.client\\smarthome.client.esproj",
       "Version": 2,
       "Source": "smarthome.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",

@@ -8,8 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "prestart": "node aspnetcore-https",
-    "start:windows": "ng serve --ssl --ssl-cert \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem\" --ssl-key \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.key\" --host=127.0.0.1",
-    "start:default": "ng serve --ssl --ssl-cert \"$HOME/.aspnet/https/${npm_package_name}.pem\" --ssl-key \"$HOME/.aspnet/https/${npm_package_name}.key\" --host=127.0.0.1"
+    "start:windows": "ng serve --configuration development --open --ssl --ssl-cert \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem\" --ssl-key \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.key\" --host=127.0.0.1",
+    "start:default": "ng serve --configuration development --open --ssl --ssl-cert \"$HOME/.aspnet/https/${npm_package_name}.pem\" --ssl-key \"$HOME/.aspnet/https/${npm_package_name}.key\" --host=127.0.0.1"
   },
   "private": true,
   "dependencies": {
@@ -22,8 +22,10 @@
     "@angular/platform-browser": "^18.2.6",
     "@angular/platform-browser-dynamic": "^18.2.6",
     "@angular/router": "^18.2.6",
+    "@microsoft/signalr": "^8.0.7",
     "@ngrx/effects": "^18.0.2",
     "@ngrx/store": "^18.0.2",
+    "angular-oauth2-oidc": "^17.0.2",
     "jest-editor-support": "*",
     "primeicons": "^7.0.0",
     "primeng": "^17.18.11",

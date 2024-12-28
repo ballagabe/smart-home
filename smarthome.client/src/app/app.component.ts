@@ -1,5 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MenuItem } from './core/models/menu-item-model';
+import { Observable } from 'rxjs';
+import { User } from './core/models/user.model';
+import { Store } from '@ngrx/store';
+import { selectHomeUser } from './core/state/home.selectors';
 
 @Component({
   selector: 'app-root',
@@ -7,19 +11,13 @@ import { MenuItem } from './core/models/menu-item-model';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnInit{
-  ngOnInit(): void {
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get('token');
-
-    if (token) {
-      localStorage.setItem('access_token', token);
-      window.history.replaceState({}, document.title, '/');
-    }
-  }
-
+export class AppComponent {
+  store = inject(Store);
+  
   menuItems: MenuItem[] = [
     { label: 'Dashboard', icon: 'pi pi-home' , routerLink: '/' },
     { label: 'Settings', icon: 'pi pi-cog' , routerLink: '/settings/app' }
   ];
+
+  user$: Observable<User> = this.store.select(selectHomeUser);
 }

@@ -13,7 +13,9 @@ import { routes } from './app.routing';
 import { homeReducer } from './core/state/home.reducer';
 import { HomeEffects } from './core/state/home.effects';
 import { AuthGuard } from './core/guards/auth.guard';
-import { authenticationInterceptor } from './core/interceptors/auth.interceptor';
+import { OAuthModule, OAuthService } from 'angular-oauth2-oidc';
+import { authInterceptor } from './core/interceptors/auth.interceptor';
+import { authConfig } from './auth.config';
 
 @NgModule({
   declarations: [
@@ -24,15 +26,20 @@ import { authenticationInterceptor } from './core/interceptors/auth.interceptor'
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot({ home: homeReducer }),
-    EffectsModule.forRoot([HomeEffects, ]),
+    EffectsModule.forRoot([HomeEffects]),
     MenubarModule,
     AvatarModule,
-    StoreModule.forRoot({}, {})
+    OAuthModule.forRoot()
   ],
   providers: [
     AuthGuard,
-    provideHttpClient(withInterceptors([authenticationInterceptor]))
+    provideHttpClient(withInterceptors([authInterceptor]))
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private oauthService: OAuthService) {
+    this.oauthService.configure(authConfig);
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
+  }
+}

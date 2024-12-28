@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\z0049wde\\source\\repos\\SmartHome\\SmartHome.Server\\SmartHome.Server.csproj": {}
+    "C:\\Users\\z0049wde\\OneDrive - Siemens AG\\Desktop\\prog\\homeproject\\smart-home\\SmartHome.Server\\SmartHome.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\z0049wde\\source\\repos\\SmartHome\\SmartHome.Server\\SmartHome.Server.csproj": {
+    "C:\\Users\\z0049wde\\OneDrive - Siemens AG\\Desktop\\prog\\homeproject\\smart-home\\SmartHome.Server\\SmartHome.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\z0049wde\\source\\repos\\SmartHome\\SmartHome.Server\\SmartHome.Server.csproj",
+        "projectUniqueName": "C:\\Users\\z0049wde\\OneDrive - Siemens AG\\Desktop\\prog\\homeproject\\smart-home\\SmartHome.Server\\SmartHome.Server.csproj",
         "projectName": "SmartHome.Server",
-        "projectPath": "C:\\Users\\z0049wde\\source\\repos\\SmartHome\\SmartHome.Server\\SmartHome.Server.csproj",
+        "projectPath": "C:\\Users\\z0049wde\\OneDrive - Siemens AG\\Desktop\\prog\\homeproject\\smart-home\\SmartHome.Server\\SmartHome.Server.csproj",
         "packagesPath": "C:\\Users\\z0049wde\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\z0049wde\\source\\repos\\SmartHome\\SmartHome.Server\\obj\\",
+        "outputPath": "C:\\Users\\z0049wde\\OneDrive - Siemens AG\\Desktop\\prog\\homeproject\\smart-home\\SmartHome.Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +50,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
             "Microsoft.AspNetCore.SpaProxy": {
               "target": "Package",
               "version": "[8.*-*, )"
@@ -57,6 +65,10 @@
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.20.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

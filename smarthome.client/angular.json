@@ -64,21 +64,23 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "smarthome.client:build:production"
+              "buildTarget": "smarthome.client:build:production"
             },
             "development": {
-              "browserTarget": "smarthome.client:build:development"
+              "buildTarget": "smarthome.client:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development",
           "options": {
-            "proxyConfig": "src/proxy.conf.js"
+            "buildTarget": "smarthome.client:build",
+            "proxyConfig": "proxy.conf.json"
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "smarthome.client:build"
+            "buildTarget": "smarthome.client:build"
           }
         },
         "test": {
