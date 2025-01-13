@@ -27,7 +27,7 @@ export class HomeEffects {
     this.actions$.pipe(
         ofType(loadLayout),
         switchMap(() =>
-        from(this.accessoryService.getLayout()).pipe(
+        from(this.accessoryService.getLayouts()).pipe(
             map(layout => loadLayoutSuccess({ layout })),
             catchError((error) => of(loadLayoutFailure({ error })))
         )))
@@ -47,7 +47,7 @@ export class HomeEffects {
         this.actions$.pipe(
             ofType(loadUser),
             switchMap(() =>
-            from(this.authService.getUserInformations()).pipe(
+            from(this.authService.getGoogleUserInfo()).pipe(
                 map((user) => loadUserSuccess({ user : user })),
                 catchError((error) => of(loadUserFailure({ error })))
             )))

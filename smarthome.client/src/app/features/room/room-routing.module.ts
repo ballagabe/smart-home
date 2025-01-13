@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RoomComponent } from './components/room/room.component';
+import { RoomComponent } from './components/acessory-list/room.component';
 import { AccessoryComponent } from './components/accessory/accessory.component';
 import { accessoryResolver } from 'src/app/core/resolvers/accessory.resolver';
 

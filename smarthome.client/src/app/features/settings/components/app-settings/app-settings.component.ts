@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { AuthService } from 'src/app/core/services/auth.service';
 @Component({
   selector: 'home-app-settings',
   templateUrl: './app-settings.component.html',
@@ -6,4 +7,5 @@ import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/cor
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppSettingsComponent {
+  authService = inject(AuthService);
 }

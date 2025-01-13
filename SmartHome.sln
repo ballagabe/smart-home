@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHome.Server", "SmartHome.Server\SmartHome.Server.csproj", "{A0D69984-006E-4B04-8E58-C7FA5B40879E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartHome.Server", "SmartHome.Server\SmartHome.Server.csproj", "{A0D69984-006E-4B04-8E58-C7FA5B40879E}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "smarthome.client", "smarthome.client\smarthome.client.esproj", "{0D1888F9-323C-475F-8B67-DA9789993869}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DC1A2D1F-2881-482A-B6A0-433E7EADC975}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

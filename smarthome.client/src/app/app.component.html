@@ -2,14 +2,15 @@
     <div class="menu">
         <p-menubar [model]="menuItems">
             <ng-template pTemplate="end">
-                <div class="menu-user-info">
-                    <h6>Név</h6>
-                    <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
+                <div class="menu-user-info" *ngIf="user$ | async as user">
+                    <h6>{{ user.name }}</h6>
+                    <p-avatar [image]="user.picture" shape="circle" />
                 </div>
             </ng-template>
         </p-menubar>
     </div>
     <div class="content">
+        <br>
         <router-outlet></router-outlet>
     </div>
 </div>

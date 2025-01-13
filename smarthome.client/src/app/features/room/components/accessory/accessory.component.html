@@ -8,25 +8,31 @@
 
     <br>
     <div *ngFor="let property of accessory.serviceCharacteristics">
-        @if(property.format == 'bool'){
+        <ng-container *ngIf="property.format == 'bool'">
             {{ property.description }} <br>
-            <p-inputSwitch [(ngModel)]="property.value" (ngModelChange)="updateAccessory(property)"/>
-        }
-        @if(property.format == 'int' || property.format == 'float'){
+            <p-inputSwitch 
+                [(ngModel)]="property.value" 
+                (ngModelChange)="updateAccessory(property)" 
+                [ngModel]="toBoolean(property.value)"
+            />
+        </ng-container>
+    
+        <ng-container *ngIf="property.format == 'int' || property.format == 'float'">
             {{ property.description }} <br>
             <p-inputNumber 
-            [(ngModel)]="property.value"
-            (ngModelChange)="updateAccessory(property)"
-            [showButtons]="true" 
-            buttonLayout="vertical" 
-            spinnerMode="vertical" 
-            inputId="vertical"
-            decrementButtonClass="p-button-secondary"
-            incrementButtonClass="p-button-secondary" 
-            incrementButtonIcon="pi pi-plus" 
-            decrementButtonIcon="pi pi-minus"
-            class="vertical-number-input"
+                [(ngModel)]="property.value"
+                (ngModelChange)="updateAccessory(property)"
+                [showButtons]="true" 
+                buttonLayout="vertical" 
+                spinnerMode="vertical" 
+                inputId="vertical"
+                decrementButtonClass="p-button-secondary"
+                incrementButtonClass="p-button-secondary" 
+                incrementButtonIcon="pi pi-plus" 
+                decrementButtonIcon="pi pi-minus"
+                class="vertical-number-input"
             />
-        }
+        </ng-container>
     </div>
+    
 </div>

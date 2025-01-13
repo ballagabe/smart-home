@@ -5,7 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputSwitchModule } from 'primeng/inputswitch';
 
-import { RoomComponent } from './components/room/room.component';
+import { RoomComponent } from './components/acessory-list/room.component';
 import { RoomRoutingModule } from './room-routing.module';
 import { AccessoryComponent } from './components/accessory/accessory.component';
 
